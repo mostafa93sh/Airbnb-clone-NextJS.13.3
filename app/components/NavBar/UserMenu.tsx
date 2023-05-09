@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
+import { useRouter } from "next/navigation";
+import MenuItem from "./MenuItem";
 
 export default function UserMenu() {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
   return (
     <div className='relative'>
       <div className='flex flex-row items-center gap-3'>
@@ -45,6 +53,33 @@ export default function UserMenu() {
           </div>
         </div>
       </div>
+      {isOpen && <div className="absolute rounded-xl 
+            shadow-md
+            w-[40vw]
+            md:w-3/4 
+            bg-white 
+            overflow-hidden 
+            right-0 
+            top-12 
+            text-sm">
+              <div className="flex flex-col cursor-pointer">
+
+              <>
+                <MenuItem 
+                  label="Login" 
+                  
+                />
+                <MenuItem 
+                  label="Sign up" 
+                  
+                />
+              </>
+              </div>
+              
+              
+              
+              </div>}
+      
     </div>
   );
 }
