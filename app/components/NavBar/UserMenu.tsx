@@ -1,3 +1,4 @@
+'use client'
 import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
@@ -31,7 +32,7 @@ export default function UserMenu() {
           Airbnb your home
         </div>
         <div
-          // onClick={() => {}}
+           onClick={toggleOpen}
           className='
           p-4
           md:py-1
