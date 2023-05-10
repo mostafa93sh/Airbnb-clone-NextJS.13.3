@@ -10,8 +10,10 @@ import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import Button from "../Button";
+import useRegisterModal from "@/app/hooks/useRegistrationModal";
 
 function RegisterModal() {
+  const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -120,7 +122,16 @@ function RegisterModal() {
   );
   return (
     <>
-      <Modal actionLabel="" onSubmit={() => {}} onClose={() => {}} />
+      <Modal
+        disabled={isLoading}
+        isOpen={registerModal.isOpen}
+        title="Register"
+        actionLabel="Continue"
+        onClose={registerModal.onClose}
+        onSubmit={handleSubmit(onSubmit)}
+        body={bodyContent}
+        footer={footerContent}
+      />
     </>
   );
 }
