@@ -30,10 +30,10 @@ function RegisterModal() {
     setIsLoading(true);
 
     axios
-      .post("/api/register", data)
+      .post("api/register", data)
       .then(() => {
         toast.success("Registered!");
-        //   registerModal.onClose();
+        registerModal.onClose();
         //   loginModal.onOpen();
       })
       .catch((error) => {
@@ -113,7 +113,6 @@ function RegisterModal() {
               hover:underline
             "
           >
-            {" "}
             Log in
           </span>
         </p>
